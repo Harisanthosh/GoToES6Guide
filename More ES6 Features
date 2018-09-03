@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES</title>
+    <script>
+        //Arrow functions
+        //1. Concise(Less verbose)
+        //2. Better "this" 
+        //3. Arrow functions are replacements for function expressions not declarations
+        //4. Always anonymous
+
+    let z = function add(a,b) {
+        let c  = a + b;
+        return c;
+    }
+    console.log((10,20));
+
+    let arr = (a,b,...c) => {
+        return a + b + c;
+    }
+    console.log(arr(20,30));
+    console.log(arr(20,30,40));
+
+    //Further simplifying the arrow functions
+    let sqr = (a) => a * a; //sqr = () => a * a; //also works
+    console.log(sqr(10));
+
+    //While returning objects in Arrow functions enclose with normal paranthesis
+    let test = () => ({ a: 100})
+
+    //Function constructors
+    function Person(){
+        this.i = 0;
+        this.j = 0;
+        setInterval(function(){
+            this.i++;
+            console.log("Normal Function: ", this.i)
+        }.bind(this),1000)
+
+        setInterval(()=>{
+            this.j++;
+            console.log("Arrow Function: ", this.j)
+        }, 2000)
+    }
+
+    const p = new Person();
+    //whereever the code context is that 'this' will be maintained. No need to bind 'this' unlike in ES5.
+    
+    // Class in ES6
+    // Class is a synctactic sugar for function constructor 
+    class Hello {
+        constructor(name) {
+            this.name = name;
+        }
+        sayHello(name){
+            return `Hello ${name}!`;
+        }
+
+        static sqrStatic(a) {
+            return console.log(a * a);
+        }
+    }
+
+    let ob = new Hello();
+    let t = ob.sayHello("Konidena");
+    console.log(t);
+
+    //Invoke Static utility methods directly
+    Hello.sqrStatic(10);
+
+    //Constructor methods will be used only once
+    // Inheritance in class
+    class Child extends Hello {
+        constructor(name) {
+            super(name);
+        }
+    }
+
+    let ob2 = new Hello("Mizzanin");
+    let m = ob2.sayHello("Sarathchandra");
+    Child.sqrStatic(20);
+    console.log(m);
+    //Use the super to pass the arguments from child class to parent class
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
