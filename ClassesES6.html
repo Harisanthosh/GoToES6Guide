@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script type="text/javascript">
+//Classes are synctatic sugars of Function Gernerators
+
+class Ticket {
+    constructor(name,age,sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+
+    getDetails() {
+        console.log(`Fetching the details of the passenger`)
+        return `The passenger
+        name is ${this.name}
+        Age is ${this.age}
+        Sex is ${this.sex}`
+    }
+
+    static computeFare(raise, baseFare=Math.floor(Math.random()* Math.floor(10))){
+        return raise * baseFare
+    }
+}
+
+let obj = new Ticket("Hari",24,"Male");
+console.log(obj.getDetails());
+console.log(Ticket.computeFare(10,400));
+
+class Passenger extends Ticket {
+    constructor(name,age,sex,status) {
+        super(name,age,sex);
+        this.status = status;
+    }
+
+    getDetails(){
+        console.log(`Fetching the details of the child class`)
+        return `The passenger
+        name is ${this.name}
+        Age is ${this.age}
+        Sex is ${this.sex}
+        Status is ${this.status}`
+    }
+}
+
+let ob2 = new Passenger("Imran",24,"Male","Confirmed")
+console.log(ob2.getDetails());
+console.log(Passenger.computeFare(20))
+console.log(Passenger.computeFare(20))
+console.log(Passenger.computeFare(20))
+console.log(Passenger.computeFare(20))
+
+
+</script>
+<body>
+    
+</body>
+</html>
