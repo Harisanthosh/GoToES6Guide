@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6</title>
+    <script>
+        console.log("Testing")
+        var x = 100;
+        //Template Literals
+        var str = `One line
+        Second ${x} Line
+        Third line`; //Gray accent or backtick for multiline strings
+        console.log(str)
+
+        //Const and Let keywords
+        const t = 10; //Cannot be updated any time later
+
+        const y ={ a:100, b: 200};
+
+        Object.freeze(y);
+
+        y.a = 500;
+
+        console.log(y);
+
+        //Let Keywords doesn't perform hoisting so you won't get undefined errors
+
+        //console.log(z);
+
+        //let z=10; throws error
+
+        //Default parameters
+        function hello(name="world") {
+            console.log(`Hello ${name}`)
+        }
+
+        hello("boy");
+
+        //enhanced object literals if the name of the variable and the name of the key are the same we can make it short
+
+        let t1 = 500;
+        let t2 = 1000;
+
+        let xo = {
+            t1,
+            t3: t2
+        }
+
+        console.log(xo);
+
+        //Destructuring array and assigning to variables
+
+        let a = [100,200,300]
+        
+        /*let x = a[0]
+        let y = a[1]
+        let z = a[2] */
+
+        let [x,y,z] = a;
+
+        //While destructuring you can also skip assignments
+        // let[x, ,z] = a;
+
+        //Similar principle applies for Object Destructuring the key orders doesn't matter
+
+        let m = {
+            h1: 100,
+            h2 : 200,
+            h3: 300
+        }
+
+        let {h1 , h2, h3} = m;
+
+        //Rest Parameter ... to fill in or collect the array of parameters to the functions
+
+        function test(a,b , ...c) {
+            //tbd
+            console.log(`a: ${a}`)
+            console.log(`b: ${b}`)
+            console.log(`a: ${c}`)
+        }
+
+        test(1, 2)
+        test(1, 2, 3)
+        test(1, 2 ,3 ,4, 5)
+
+        //Spread Parameter to spread the variables
+        let p = [1,2,3]
+        let q = [100,200,300]
+        let r = [...p,...q] // Spreads and appends the varilables
+        //Rest will implode, spread will explode. We will use soread to clone objects and perform operations
+        let x = {a:1,b:2}
+        let y = {...x}
+        console.log(y)
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
